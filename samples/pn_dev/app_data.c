@@ -87,7 +87,7 @@ static void app_handle_data_led_state (bool led_state)
    }
    previous_led_state = led_state;
 }
-
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 uint8_t * app_data_get_input_data (
    uint16_t slot_nbr,
    uint16_t subslot_nbr,
@@ -96,10 +96,19 @@ uint8_t * app_data_get_input_data (
    uint16_t * size,
    uint8_t * iops)
 {
+   static unsigned long int seq = 0;
    float inputfloat;
    float outputfloat;
    uint32_t hostorder_inputfloat_bytes;
    uint32_t hostorder_outputfloat_bytes;
+   printf (
+      "%s: %lu: %u %u %u %x\n",
+      __FUNCTION__,
+      seq++,
+      slot_nbr,
+      subslot_nbr,
+      submodule_id,
+      button_pressed);
    app_echo_data_t * p_echo_inputdata = (app_echo_data_t *)&echo_inputdata;
    app_echo_data_t * p_echo_outputdata = (app_echo_data_t *)&echo_outputdata;
 
@@ -108,13 +117,30 @@ uint8_t * app_data_get_input_data (
       return NULL;
    }
 
-   if (
-      submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN ||
-      submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT)
-   {
+   if (submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN) {
+      inputdata[0] = 0xff;
+      FILE * fp = fopen ("input", "r");
+      if (fp) {
+         char buf[4];
+         int rc = fread(buf, sizeof(*buf), ARRAY_SIZE(buf), fp);
+	 if( !rc ) {
+		 printf("uh oh\n");
+	 }
+	 unsigned long int x = strtoul(buf,NULL,16);
+	 inputdata[0] = (unsigned char)(x&0xff);
+         fclose (fp);
+	 printf("%08x",( unsigned int) x);
+      }
+      *size = APP_GSDML_INPUT_DATA_DIGITAL_SIZE;
+      *iops = PNET_IOXS_GOOD;
+      return inputdata;
+   }
+   else if (submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN_OUT) {
       /* Prepare digital input data
        * Lowest 7 bits: Counter    Most significant bit: Button
        */
+
+      counter = counter + 12345;
       inputdata[0] = counter++;
       if (button_pressed)
       {
@@ -168,7 +194,16 @@ int app_data_set_output_data (
    uint16_t size)
 {
    bool led_state;
+   static unsigned long int seq = 0;
 
+   printf (
+      "%s: %lu: %u %u %u -->|%s|<--\n",
+      __FUNCTION__,
+      seq++,
+      slot_nbr,
+      subslot_nbr,
+      submodule_id,
+      data);
    if (data == NULL)
    {
       return -1;
