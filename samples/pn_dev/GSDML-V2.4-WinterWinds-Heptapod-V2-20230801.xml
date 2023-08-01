@@ -89,22 +89,29 @@ Replace the tag above with the one below to support shared device.
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
-               <VirtualSubmoduleList>
+		<VirtualSubmoduleList>
                   <VirtualSubmoduleItem ID="IDSM_130" SubmoduleIdentNumber="0x0130" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="Unsigned8" TextId="TOK_Input_DataItem_8" UseAsBits="true">
-                              <BitDataItem BitOffset="0" TextId="TOK_Input_DataItem_Bit0"/>
-                              <BitDataItem BitOffset="1" TextId="TOK_Input_DataItem_Bit1"/>
-                              <BitDataItem BitOffset="2" TextId="TOK_Input_DataItem_Bit2"/>
-                              <BitDataItem BitOffset="3" TextId="TOK_Input_DataItem_Bit3"/>
-                              <BitDataItem BitOffset="4" TextId="TOK_Input_DataItem_Bit4"/>
-                              <BitDataItem BitOffset="5" TextId="TOK_Input_DataItem_Bit5"/>
-                              <BitDataItem BitOffset="6" TextId="TOK_Input_DataItem_Bit6"/>
-                              <BitDataItem BitOffset="7" TextId="TOK_Input_DataItem_Bit7"/>
-                           </DataItem>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
                         </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                        </Output>
                      </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
                      <ModuleInfo>
                         <Name TextId="IDT_MODULE_NAME_IEDVD"/>
                         <InfoText TextId="IDT_INFO_IEDVD"/>
@@ -122,19 +129,26 @@ Replace the tag above with the one below to support shared device.
                <VirtualSubmoduleList>
                   <VirtualSubmoduleItem ID="IDSM_131" SubmoduleIdentNumber="0x0131" MayIssueProcessAlarm="true">
                      <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
+                        </Input>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem_8" UseAsBits="true">
-                              <BitDataItem BitOffset="0" TextId="TOK_Output_DataItem_Bit0"/>
-                              <BitDataItem BitOffset="1" TextId="TOK_Output_DataItem_Bit1"/>
-                              <BitDataItem BitOffset="2" TextId="TOK_Output_DataItem_Bit2"/>
-                              <BitDataItem BitOffset="3" TextId="TOK_Output_DataItem_Bit3"/>
-                              <BitDataItem BitOffset="4" TextId="TOK_Output_DataItem_Bit4"/>
-                              <BitDataItem BitOffset="5" TextId="TOK_Output_DataItem_Bit5"/>
-                              <BitDataItem BitOffset="6" TextId="TOK_Output_DataItem_Bit6"/>
-                              <BitDataItem BitOffset="7" TextId="TOK_Output_DataItem_Bit7"/>
-                           </DataItem>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
                         </Output>
                      </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
                      <ModuleInfo>
                         <Name TextId="IDT_MODULE_NAME_IPC427E"/>
                         <InfoText TextId="IDT_INFO_IPC427E"/>
@@ -144,60 +158,45 @@ Replace the tag above with the one below to support shared device.
             </ModuleItem>
             <ModuleItem ID="IDM_32" ModuleIdentNumber="0x00000032">
                <ModuleInfo>
-                  <Name TextId="TOK_Name_Module_I8O8"/>
-                  <InfoText TextId="TOK_InfoText_Module_I8O8"/>
+                  <Name TextId="IDT_MODULE_NAME_IPC277E"/>
+                  <InfoText TextId="IDT_INFO_IPC277E"/>
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
-               <VirtualSubmoduleList>
+            <VirtualSubmoduleList>
                   <VirtualSubmoduleItem ID="IDSM_132" SubmoduleIdentNumber="0x0132" MayIssueProcessAlarm="true">
                      <IOData>
-                        <Input>
-                           <DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_Input_DataItem_8">
-                              <BitDataItem BitOffset="0" TextId="TOK_Input_DataItem_Bit0"/>
-                              <BitDataItem BitOffset="1" TextId="TOK_Input_DataItem_Bit1"/>
-                              <BitDataItem BitOffset="2" TextId="TOK_Input_DataItem_Bit2"/>
-                              <BitDataItem BitOffset="3" TextId="TOK_Input_DataItem_Bit3"/>
-                              <BitDataItem BitOffset="4" TextId="TOK_Input_DataItem_Bit4"/>
-                              <BitDataItem BitOffset="5" TextId="TOK_Input_DataItem_Bit5"/>
-                              <BitDataItem BitOffset="6" TextId="TOK_Input_DataItem_Bit6"/>
-                              <BitDataItem BitOffset="7" TextId="TOK_Input_DataItem_Bit7"/>
-                           </DataItem>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
                         </Input>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem_8" UseAsBits="true">
-                              <BitDataItem BitOffset="0" TextId="TOK_Output_DataItem_Bit0"/>
-                              <BitDataItem BitOffset="1" TextId="TOK_Output_DataItem_Bit1"/>
-                              <BitDataItem BitOffset="2" TextId="TOK_Output_DataItem_Bit2"/>
-                              <BitDataItem BitOffset="3" TextId="TOK_Output_DataItem_Bit3"/>
-                              <BitDataItem BitOffset="4" TextId="TOK_Output_DataItem_Bit4"/>
-                              <BitDataItem BitOffset="5" TextId="TOK_Output_DataItem_Bit5"/>
-                              <BitDataItem BitOffset="6" TextId="TOK_Output_DataItem_Bit6"/>
-                              <BitDataItem BitOffset="7" TextId="TOK_Output_DataItem_Bit7"/>
-                           </DataItem>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
                         </Output>
                      </IOData>
                      <RecordDataList>
-                        <ParameterRecordDataItem Index="123" Length="4">
-                           <Name TextId="TOK_sample_parameter_1"/>
-                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="1" AllowedValues="0..99" Changeable="true" Visible="true" TextId="TOK_Demo_1"/>
-                        </ParameterRecordDataItem>
-                        <ParameterRecordDataItem Index="124" Length="4">
-                           <Name TextId="TOK_sample_parameter_2"/>
-                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="0..999" Changeable="true" Visible="true" TextId="TOK_Demo_2"/>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
                         </ParameterRecordDataItem>
                      </RecordDataList>
                      <ModuleInfo>
-                        <Name TextId="TOK_Name_Module_I8O8"/>
-                        <InfoText TextId="TOK_InfoText_Module_I8O8"/>
+                        <Name TextId="IDT_MODULE_NAME_IPC277E"/>
+                        <InfoText TextId="IDT_INFO_IPC277E"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
             </ModuleItem>
             <ModuleItem ID="IDM_40" ModuleIdentNumber="0x00000040">
                <ModuleInfo>
-                  <Name TextId="TOK_Name_Module_Echo"/>
-                  <InfoText TextId="TOK_InfoText_Module_Echo"/>
+                  <Name TextId="IDT_MODULE_NAME_IOT2050"/>
+                  <InfoText TextId="IDT_INFO_IOT2050"/>
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
@@ -205,29 +204,28 @@ Replace the tag above with the one below to support shared device.
                   <VirtualSubmoduleItem ID="IDSM_140" SubmoduleIdentNumber="0x0140" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="TOK_Input_DataItem_Echo_Float32"/>
-                           <DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_AppCount"/>
-                           <DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_AppPCT"/>
-               		<DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_STORPCT"/>
-               		<DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_MEM"/>
-               		<DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_MEMPCT"/>
-               		<DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_CPUPCT"/>
-               		<DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDDET_DeviceType"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+               		<DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
                         </Input>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="TOK_Output_DataItem_Echo_Float32"/>
-                           <DataItem DataType="Float32" TextId="TOK_Output_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
                         </Output>
                      </IOData>
                      <RecordDataList>
                         <ParameterRecordDataItem Index="125" Length="4">
-                           <Name TextId="TOK_sample_parameter_Echo"/>
-                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="TOK_Echo_Gain"/>
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
                         </ParameterRecordDataItem>
                      </RecordDataList>
                      <ModuleInfo>
-                        <Name TextId="TOK_Name_Module_Echo"/>
-                        <InfoText TextId="TOK_InfoText_Module_Echo"/>
+                        <Name TextId="IDT_MODULE_NAME_IOT2050"/>
+                        <InfoText TextId="IDT_INFO_IOT2050"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
@@ -278,48 +276,25 @@ Replace the tag above with the one below to support shared device.
                <Text TextId="IDT_INFO_IPC427E" Value="Siemens IPC427E"/>
                <Text TextId="IDT_MODULE_NAME_IOT2050" Value="IED-IOT2050"/>
                <Text TextId="IDT_INFO_IOT2050" Value="IED - Siemens IOT2050"/>
-               <!--module info -->
-               <Text TextId="TOK_InfoText_Module_I8" Value="Virtual IED"/>
-               <Text TextId="TOK_InfoText_Module_O8" Value="Siemens IPC427E"/>
-               <Text TextId="TOK_InfoText_Module_I8O8" Value="Siemens IPC227E"/>
-               <Text TextId="TOK_InfoText_Module_Echo" Value="WinterWinds Badger Brain"/>
                <!--dataitem name-->
-               <Text TextId="TOK_Input_DataItem_8" Value="Input 8 bits"/>
-               <Text TextId="TOK_Output_DataItem_8" Value="Output 8 bits"/>
-               <Text TextId="TOK_Input_DataItem_Bit0" Value="Input Bit 0"/>
-               <Text TextId="TOK_Input_DataItem_Bit1" Value="Input Bit 1"/>
-               <Text TextId="TOK_Input_DataItem_Bit2" Value="Input Bit 2"/>
-               <Text TextId="TOK_Input_DataItem_Bit3" Value="Input Bit 3"/>
-               <Text TextId="TOK_Input_DataItem_Bit4" Value="Input Bit 4"/>
-               <Text TextId="TOK_Input_DataItem_Bit5" Value="Input Bit 5"/>
-               <Text TextId="TOK_Input_DataItem_Bit6" Value="Input Bit 6"/>
-               <Text TextId="TOK_Input_DataItem_Bit7" Value="Input Bit 7"/>
-               <Text TextId="TOK_Output_DataItem_Bit0" Value="Output Bit 0"/>
-               <Text TextId="TOK_Output_DataItem_Bit1" Value="Output Bit 1"/>
-               <Text TextId="TOK_Output_DataItem_Bit2" Value="Output Bit 2"/>
-               <Text TextId="TOK_Output_DataItem_Bit3" Value="Output Bit 3"/>
-               <Text TextId="TOK_Output_DataItem_Bit4" Value="Output Bit 4"/>
-               <Text TextId="TOK_Output_DataItem_Bit5" Value="Output Bit 5"/>
-               <Text TextId="TOK_Output_DataItem_Bit6" Value="Output Bit 6"/>
-               <Text TextId="TOK_Output_DataItem_Bit7" Value="Output Bit 7"/>
-               <Text TextId="TOK_Input_DataItem_Echo_Float32" Value="Number of Applications On IED"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_AppPCT" Value="Percentage Capacity Used"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_STORPCT" Value="Data Space Percentage Used"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_MEM" Value="Memory Used"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_MEMPCT" Value="Memory Percentage Used"/>
-               <Text TextId="TOK_Input_DataItem_IEDStats_CPUPCT" Value="CPU Percentage"/>
-               <Text TextId="TOK_Input_DataItem_IEDDET_DeviceType" Value="Device Type"/>
-               <Text TextId="TOK_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
-               <Text TextId="TOK_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
-               <Text TextId="TOK_Output_DataItem_IEDStats_AppCount" Value="IED App Count"/>
+               <Text TextId="IDT_Input_DataItem_Echo_Float32" Value="Number of Applications On IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppPCT" Value="Percentage Capacity Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_STORPCT" Value="Data Space Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MEM" Value="Memory Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MEMPCT" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_CPUPCT" Value="CPU Percentage"/>
+               <Text TextId="IDT_Input_DataItem_IEDDET_DeviceType" Value="Device Type"/>
+               <Text TextId="IDT_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
+               <Text TextId="IDT_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="IED App Count"/>
                <!--ParameterRecordDataItem name-->
-               <Text TextId="TOK_sample_parameter_1" Value="NTP Server 1"/>
-               <Text TextId="TOK_sample_parameter_2" Value="NTP Server 2"/>
-               <Text TextId="TOK_sample_parameter_Echo" Value="Other Stuff"/>
-               <Text TextId="TOK_Demo_1" Value="Caleb 1"/>
-               <Text TextId="TOK_Demo_2" Value="Caleb 2"/>
-               <Text TextId="TOK_Echo_Gain" Value="Caleb Gain"/>
+               <Text TextId="IDT_sample_parameter_1" Value="NTP Server 1"/>
+               <Text TextId="IDT_sample_parameter_2" Value="NTP Server 2"/>
+               <Text TextId="IDT_sample_parameter_Echo" Value="Other Stuff"/>
+               <Text TextId="IDT_Demo_1" Value="Caleb 1"/>
+               <Text TextId="IDT_Demo_2" Value="Caleb 2"/>
+               <Text TextId="IDT_Echo_Gain" Value="Caleb Gain"/>
             </PrimaryLanguage>
          </ExternalTextList>
       </ApplicationProcess>
