@@ -34,7 +34,7 @@ Replace the tag above with the one below to support shared device.
                   <Name TextId="IDT_MODULE_NAME_DAP1"/>
                   <InfoText TextId="IDT_INFO_DAP1"/>
                   <VendorName Value="WinterWinds Robotics"/>
-                  <OrderNumber Value="123456 Abcdefghijkl"/>
+                  <OrderNumber Value="410106"/>
                   <HardwareRelease Value="A1.0"/>
                   <SoftwareRelease Value="V0.1.0"/>
                </ModuleInfo>
@@ -93,7 +93,7 @@ Add additional PortSubmoduleItems to support additional ports
 -->
                </SystemDefinedSubmoduleList>
                <Graphics>
-                  <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="RT-LabsStackImage"/>
+                  <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="GSDML-WWRImage"/>
                </Graphics>
             </DeviceAccessPointItem>
          </DeviceAccessPointList>
@@ -222,11 +222,11 @@ Add additional PortSubmoduleItems to support additional ports
                      <IOData>
                         <Input Consistency="All items consistency">
                            <DataItem DataType="Float32" TextId="TOK_Input_DataItem_Echo_Float32"/>
-                           <DataItem DataType="Unsigned32" TextId="TOK_Input_DataItem_Echo_Unsigned32"/>
+                           <DataItem DataType="Float32" TextId="TOK_Input_DataItem_IEDStats_AppCount"/>
                         </Input>
                         <Output Consistency="All items consistency">
                            <DataItem DataType="Float32" TextId="TOK_Output_DataItem_Echo_Float32"/>
-                           <DataItem DataType="Unsigned32" TextId="TOK_Output_DataItem_Echo_Unsigned32"/>
+                           <DataItem DataType="Float32" TextId="TOK_Output_DataItem_IEDStats_AppCount"/>
                         </Output>
                      </IOData>
                      <RecordDataList>
@@ -253,13 +253,13 @@ Add additional PortSubmoduleItems to support additional ports
             </LogBookEntryItem>
          </LogBookEntryList>
          <GraphicsList>
-            <GraphicItem ID="RT-LabsStackImage" GraphicFile="GSDML-RT-LABS-STACK"/>
+            <GraphicItem ID="GSDML-WWRImage" GraphicFile="GSDML-WWR"/>
          </GraphicsList>
          <ExternalTextList>
             <PrimaryLanguage>
                <Text TextId="IDT_INFO_Device" Value="Heptapod-Bootstrap"/>
-               <Text TextId="IDT_MODULE_NAME_DAP1" Value="Heptapod-Bootstrap"/>
-               <Text TextId="IDT_INFO_DAP1" Value="Bootstrap for Industrial Edge"/>
+               <Text TextId="IDT_MODULE_NAME_DAP1" Value="HEPTAPOD-IEM-Manager"/>
+               <Text TextId="IDT_INFO_DAP1" Value="TIA Portal Configuration for the Industrial Edge"/>
                <Text TextId="IDT_CUSTOM_DIAG_1" Value="Custom diagnosis in USI format"/>
                <Text TextId="IDT_CUSTOM_DIAG_1_VALUE" Value="IED Status"/>
                <Text TextId="IDT_CUSTOM_LOGBOOK_1" Value="IED Event"/>
@@ -295,10 +295,11 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Output_DataItem_Bit5" Value="Output Bit 5"/>
                <Text TextId="TOK_Output_DataItem_Bit6" Value="Output Bit 6"/>
                <Text TextId="TOK_Output_DataItem_Bit7" Value="Output Bit 7"/>
-               <Text TextId="TOK_Input_DataItem_Echo_Float32" Value="Input float to controller (output from controller multiplied by gain)"/>
+               <Text TextId="TOK_Input_DataItem_Echo_Float32" Value="Number of Applications On IED"/>
+               <Text TextId="TOK_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <Text TextId="TOK_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
                <Text TextId="TOK_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
-               <Text TextId="TOK_Output_DataItem_Echo_Unsigned32" Value="Output int from controller"/>
+               <Text TextId="TOK_Output_DataItem_IEDStats_AppCount" Value="IED App Count"/>
                <!--ParameterRecordDataItem name-->
                <Text TextId="TOK_sample_parameter_1" Value="NTP Server 1"/>
                <Text TextId="TOK_sample_parameter_2" Value="NTP Server 2"/>
