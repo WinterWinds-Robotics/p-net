@@ -103,39 +103,36 @@ extern "C" {
 
 #define APP_GSDML_DEFAULT_MAUTYPE 0x10 /* Copper 100 Mbit/s Full duplex */
 
-typedef struct app_gsdml_module
-{
-   uint32_t id;
+typedef struct app_gsdml_module {
+    uint32_t id;
 
-   /** Module name */
-   const char * name;
+    /** Module name */
+    const char * name;
 
    /** Submodule IDs. Variable length, ends with 0. */
    uint32_t submodules[];
 } app_gsdml_module_t;
 
-typedef struct app_gsdml_submodule
-{
-   uint32_t id;
+typedef struct app_gsdml_submodule {
+    uint32_t id;
 
-   /** Submodule name */
-   const char * name;
+    /** Submodule name */
+    const char * name;
 
-   uint32_t api;
-   pnet_submodule_dir_t data_dir;
-   uint16_t insize;
-   uint16_t outsize;
+    uint32_t api;
+    pnet_submodule_dir_t data_dir;
+    uint16_t insize;
+    uint16_t outsize;
 
-   /** Parameter indexes. See app_gsdml_parameters.
-    * Variable length, ends with 0. */
-   uint16_t parameters[];
+    /** Parameter indexes. See app_gsdml_parameters.
+     * Variable length, ends with 0. */
+    uint16_t parameters[];
 } app_gsdml_submodule_t;
 
-typedef struct
-{
-   uint32_t index;
-   const char * name;
-   uint16_t length;
+typedef struct {
+    uint32_t index;
+    const char * name;
+    uint16_t length;
 } app_gsdml_param_t;
 
 #define APP_GSDML_MOD_ID_8_0_DIGITAL_IN     0x00000030
@@ -165,7 +162,7 @@ const app_gsdml_module_t * app_gsdml_get_module_cfg (uint32_t module_id);
  * @return Submodule configuration, NULL if not found
  */
 const app_gsdml_submodule_t * app_gsdml_get_submodule_cfg (
-   uint32_t submodule_id);
+    uint32_t submodule_id);
 
 /**
  * Get parameter configuration from parameter index
@@ -174,8 +171,8 @@ const app_gsdml_submodule_t * app_gsdml_get_submodule_cfg (
  * @return Parameter configuration, NULL if not found
  */
 const app_gsdml_param_t * app_gsdml_get_parameter_cfg (
-   uint32_t submodule_id,
-   uint32_t index);
+    uint32_t submodule_id,
+    uint32_t index);
 
 #ifdef __cplusplus
 }
