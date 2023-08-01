@@ -84,8 +84,8 @@ Replace the tag above with the one below to support shared device.
          <ModuleList>
             <ModuleItem ID="IDM_30" ModuleIdentNumber="0x00000030">
                <ModuleInfo>
-                  <Name TextId="TOK_Name_Module_I8"/>
-                  <InfoText TextId="TOK_InfoText_Module_I8"/>
+                  <Name TextId="IDT_MODULE_NAME_IEDVD"/>
+                  <InfoText TextId="IDT_INFO_IEDVD"/>
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
@@ -106,16 +106,16 @@ Replace the tag above with the one below to support shared device.
                         </Input>
                      </IOData>
                      <ModuleInfo>
-                        <Name TextId="TOK_Name_Module_I8"/>
-                        <InfoText TextId="TOK_InfoText_Module_I8"/>
+                        <Name TextId="IDT_MODULE_NAME_IEDVD"/>
+                        <InfoText TextId="IDT_INFO_IEDVD"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
             </ModuleItem>
             <ModuleItem ID="IDM_31" ModuleIdentNumber="0x00000031">
                <ModuleInfo>
-                  <Name TextId="TOK_Name_Module_O8"/>
-                  <InfoText TextId="TOK_InfoText_Module_O8"/>
+                  <Name TextId="IDT_MODULE_NAME_IPC427E"/>
+                  <InfoText TextId="IDT_INFO_IPC427E"/>
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
@@ -136,8 +136,8 @@ Replace the tag above with the one below to support shared device.
                         </Output>
                      </IOData>
                      <ModuleInfo>
-                        <Name TextId="TOK_Name_Module_O8"/>
-                        <InfoText TextId="TOK_InfoText_Module_O8"/>
+                        <Name TextId="IDT_MODULE_NAME_IPC427E"/>
+                        <InfoText TextId="IDT_INFO_IPC427E"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
@@ -247,6 +247,7 @@ Replace the tag above with the one below to support shared device.
          </GraphicsList>
          <ExternalTextList>
             <PrimaryLanguage>
+               <!--dap-categories-->
                <Text TextId="IDT_INFO_Device" Value="Heptapod-Bootstrap"/>
                <Text TextId="IDT_MODULE_NAME_DAP1" Value="HEPTAPOD-IEM-Manager"/>
                <Text TextId="IDT_INFO_DAP1" Value="TIA Portal Configuration for the Industrial Edge"/>
@@ -256,26 +257,27 @@ Replace the tag above with the one below to support shared device.
                <Text TextId="IDT_NAME_IS" Value="X1"/>
                <Text TextId="IDT_NAME_PS1" Value="X1 P1"/>
                <Text TextId="IDT_NAME_PS2" Value="X1 P2"/>
-               <Text TextId="IDT_MODULE_NAME_Module1" Value="IEDVD"/>
-		  <Text TextId="IDT_INFO_Module1" Value="IED Virtual Device"/>
-		  <Text TextId="IDT_MODULE_NAME_Module2" Value="Labrador"/>
-		  <Text TextId="IDT_INFO_Module2" Value="Labrador Industrial PC"/>
-		  <Text TextId="IDT_DATAITEM_AnalogInput" Value="Analog Input Channel"/>
+               <Text TextId="IDT_DATAITEM_AnalogInput" Value="Analog Input Channel"/>
 		  <Text TextId="IDT_DATAITEM_AnalogOutput" Value="Analog Output Channel"/>
 		  <Text TextId="IDT_CATEGORY_IEDs" Value="Industrial Edge Devices"/>
-		  <Text TextId="IDT_CATEGORY_Virtual_IED" Value="Analog Input Modules"/>
-		  <Text TextId="IDT_CATEGORY_Physical_IED" Value="Analog Output Modules"/>
-		  <Text TextId="IDT_NAME_VS1" Value="DataBus"/>
-		  <Text TextId="IDT_INFO_VS1" Value="Description of submodule 1"/>
-		  <Text TextId="IDT_NAME_VS2" Value="DataService"/>
-		  <Text TextId="IDT_INFO_VS2" Value="Description of submodule 2"/>
-		  <Text TextId="IDT_NAME_VS3" Value="Heptapod_Databus"/>
-		  <Text TextId="IDT_INFO_VS3" Value="Description of submodule 3"/>
-               <!--module name-->
-               <Text TextId="TOK_Name_Module_I8" Value="IED-Virtual"/>
-               <Text TextId="TOK_Name_Module_O8" Value="IED-Siemens IPC427E"/>
-               <Text TextId="TOK_Name_Module_I8O8" Value="IED - Siemens IPC227E"/>
-               <Text TextId="TOK_Name_Module_Echo" Value="IED - WinterWinds BB-4101"/>
+		  <Text TextId="IDT_CATEGORY_Virtual_IED" Value="Virtual IED's"/>
+		  <Text TextId="IDT_CATEGORY_SIEMENS_IED" Value="Siemens IED's"/>
+		  <Text TextId="IDT_CATEGORY_WWR_IED" Value="WinterWinds IED's"/>
+               <Text TextId="IDT_NAME_DATABUS" Value="DataBus"/>
+		  <Text TextId="IDT_INFO_DATABUS" Value="DATABUS App"/>
+		  <Text TextId="IDT_NAME_DATASERVICE" Value="DataService"/>
+		  <Text TextId="IDT_INFO_DATASERVICE" Value="Description of submodule 2"/>
+		  <Text TextId="IDT_NAME_HEPTAPOD" Value="Heptapod_Databus"/>
+		   <Text TextId="IDT_INFO_HEPTAPOD" Value="Description of submodule 3"/>
+               <!--module name and info-->
+                <Text TextId="IDT_MODULE_NAME_IEDVD" Value="IED-VIRTUAL"/>
+		   <Text TextId="IDT_INFO_IEDVD" Value="IED Virtual Device"/>
+		   <Text TextId="IDT_MODULE_NAME_IPC277E" Value="IED-IPC277E"/>
+		   <Text TextId="IDT_INFO_IPC277E" Value="Siemens IPC277E"/>
+                <Text TextId="IDT_MODULE_NAME_IPC427E" Value="IED-IPC427E"/>
+               <Text TextId="IDT_INFO_IPC427E" Value="Siemens IPC427E"/>
+               <Text TextId="IDT_MODULE_NAME_IOT2050" Value="IED-IOT2050"/>
+               <Text TextId="IDT_INFO_IOT2050" Value="IED - Siemens IOT2050"/>
                <!--module info -->
                <Text TextId="TOK_InfoText_Module_I8" Value="Virtual IED"/>
                <Text TextId="TOK_InfoText_Module_O8" Value="Siemens IPC427E"/>
