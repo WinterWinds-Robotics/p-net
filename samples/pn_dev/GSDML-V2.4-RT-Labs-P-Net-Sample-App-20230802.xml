@@ -16,26 +16,24 @@
    <ProfileBody>
       <DeviceIdentity VendorID="0x0493" DeviceID="0x0002">
          <InfoText TextId="IDT_INFO_Device"/>
-         <VendorName Value="WWR"/>
+         <VendorName Value="RT-Labs"/>
       </DeviceIdentity>
       <DeviceFunction>
-         <Family MainFamily="I/O" ProductFamily="IEM-Device"/>
+         <Family MainFamily="I/O" ProductFamily="P-Net Samples"/>
       </DeviceFunction>
       <ApplicationProcess>
          <DeviceAccessPointList>
-         <!--
-            <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="heptapod-bootstrap" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="false" MultipleWriteSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
-            
--->
-<!--
+            <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="rt-labs-dev" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="false" MultipleWriteSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
+            <!--
 Replace the tag above with the one below to support shared device.
 -->
+            <!--
             <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="rt-labs-dev" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="false" MultipleWriteSupported="true" SharedDeviceSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
-
+-->
                <ModuleInfo>
                   <Name TextId="IDT_MODULE_NAME_DAP1"/>
                   <InfoText TextId="IDT_INFO_DAP1"/>
-                  <VendorName Value="WinterWinds Robotics"/>
+                  <VendorName Value="RT-Labs"/>
                   <OrderNumber Value="123456 Abcdefghijkl"/>
                   <HardwareRelease Value="A1.0"/>
                   <SoftwareRelease Value="V0.1.0"/>
@@ -290,26 +288,26 @@ Add additional PortSubmoduleItems to support additional ports
          </GraphicsList>
          <ExternalTextList>
             <PrimaryLanguage>
-               <Text TextId="IDT_INFO_Device" Value="Heptapod-Bootstrap"/>
-               <Text TextId="IDT_MODULE_NAME_DAP1" Value="Heptapod-Bootstrap"/>
-               <Text TextId="IDT_INFO_DAP1" Value="Bootstrap for Industrial Edge"/>
+               <Text TextId="IDT_INFO_Device" Value="https://github.com/rtlabs-com/p-net"/>
+               <Text TextId="IDT_MODULE_NAME_DAP1" Value="P-Net multi-module sample app"/>
+               <Text TextId="IDT_INFO_DAP1" Value="Profinet device sample app https://github.com/rtlabs-com/p-net"/>
                <Text TextId="IDT_CUSTOM_DIAG_1" Value="Custom diagnosis in USI format"/>
-               <Text TextId="IDT_CUSTOM_DIAG_1_VALUE" Value="IED Status"/>
-               <Text TextId="IDT_CUSTOM_LOGBOOK_1" Value="IED Event"/>
+               <Text TextId="IDT_CUSTOM_DIAG_1_VALUE" Value="Custom diagnosis value"/>
+               <Text TextId="IDT_CUSTOM_LOGBOOK_1" Value="Custom Logbook entry"/>
                <Text TextId="IDT_NAME_IS" Value="X1"/>
                <Text TextId="IDT_NAME_PS1" Value="X1 P1"/>
                <Text TextId="IDT_NAME_PS2" Value="X1 P2"/>
                <!--module name-->
-               <Text TextId="TOK_Name_Module_I8" Value="IED-Virtual"/>
-               <Text TextId="TOK_Name_Module_O8" Value="IED-Siemens IPC427E"/>
-               <Text TextId="TOK_Name_Module_I8O8" Value="IED - Siemens IPC227E"/>
-               <Text TextId="TOK_Name_Module_Echo" Value="IED - WinterWinds BB-4101"/>
+               <Text TextId="TOK_Name_Module_I8" Value="DI 8xLogicLevel"/>
+               <Text TextId="TOK_Name_Module_O8" Value="DO 8xLogicLevel"/>
+               <Text TextId="TOK_Name_Module_I8O8" Value="DIO 8xLogicLevel"/>
+               <Text TextId="TOK_Name_Module_Echo" Value="Echo Module"/>
                <Text TextId="IDT_Name_Module_AppCount" Value="IED - WinterWinds BB-4101"/>
                <!--module info -->
-               <Text TextId="TOK_InfoText_Module_I8" Value="Virtual IED"/>
-               <Text TextId="TOK_InfoText_Module_O8" Value="Siemens IPC427E"/>
-               <Text TextId="TOK_InfoText_Module_I8O8" Value="Siemens IPC227E"/>
-               <Text TextId="TOK_InfoText_Module_Echo" Value="WinterWinds Badger Brain"/>
+               <Text TextId="TOK_InfoText_Module_I8" Value="Digital In 8xLogicLevel"/>
+               <Text TextId="TOK_InfoText_Module_O8" Value="Digital Out 8xLogicLevel"/>
+               <Text TextId="TOK_InfoText_Module_I8O8" Value="Digital In+Out 8xLogicLevel"/>
+               <Text TextId="TOK_InfoText_Module_Echo" Value="Echo with adjustable gain"/>
                <Text TextId="IDT_InfoText_Module_AppCount" Value="IED Application Count"/>
                <!--dataitem name-->
                <Text TextId="TOK_Input_DataItem_8" Value="Input 8 bits"/>
@@ -337,12 +335,12 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <!--ParameterRecordDataItem name-->
-               <Text TextId="TOK_sample_parameter_1" Value="NTP Server 1"/>
-               <Text TextId="TOK_sample_parameter_2" Value="NTP Server 2"/>
-               <Text TextId="TOK_sample_parameter_Echo" Value="Other Stuff"/>
-               <Text TextId="TOK_Demo_1" Value="Caleb 1"/>
-               <Text TextId="TOK_Demo_2" Value="Caleb 2"/>
-               <Text TextId="TOK_Echo_Gain" Value="Caleb Gain"/>
+               <Text TextId="TOK_sample_parameter_1" Value="Parameter 1"/>
+               <Text TextId="TOK_sample_parameter_2" Value="Parameter 2"/>
+               <Text TextId="TOK_sample_parameter_Echo" Value="Gain for echo module"/>
+               <Text TextId="TOK_Demo_1" Value="Demo 1"/>
+               <Text TextId="TOK_Demo_2" Value="Demo 2"/>
+               <Text TextId="TOK_Echo_Gain" Value="Gain"/>
             </PrimaryLanguage>
          </ExternalTextList>
       </ApplicationProcess>
