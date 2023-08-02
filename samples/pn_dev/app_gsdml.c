@@ -177,9 +177,9 @@ static const app_gsdml_module_t * app_gsdml_modules[] = {
    &module_digital_out,
    &module_digital_in_out,
    &module_echo,
-   &module_IOT205};
+   &module_IOT2050};
 
-/** List of supported submodules */,
+/** List of supported submodules */
 
 static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &dap_indentity_1,
