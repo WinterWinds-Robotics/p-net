@@ -251,7 +251,7 @@ Add additional PortSubmoduleItems to support additional ports
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
                <VirtualSubmoduleList>
-                  <VirtualSubmoduleItem ID="IDM_150" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="true">
+                  <VirtualSubmoduleItem ID="IDM_150" FixedInSubslots="1" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
                            <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
@@ -265,7 +265,7 @@ Add additional PortSubmoduleItems to support additional ports
                         <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
-                  <VirtualSubmoduleItem ID="IDM_151" SubmoduleIdentNumber="0x0151" MayIssueProcessAlarm="true">
+                  <VirtualSubmoduleItem ID="IDM_151" FixedInSubslots="2" SubmoduleIdentNumber="0x0151" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
                            <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MemPct"/>
@@ -310,13 +310,13 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Name_Module_O8" Value="DO 8xLogicLevel"/>
                <Text TextId="TOK_Name_Module_I8O8" Value="DIO 8xLogicLevel"/>
                <Text TextId="TOK_Name_Module_Echo" Value="Echo Module"/>
-               <Text TextId="IDT_Name_Module_AppCount" Value="IED - WinterWinds BB-4101"/>
+               <Text TextId="IDT_Name_Module_IEDStats" Value="IED - WinterWinds BB-4101"/>
                <!--module info -->
                <Text TextId="TOK_InfoText_Module_I8" Value="Digital In 8xLogicLevel"/>
                <Text TextId="TOK_InfoText_Module_O8" Value="Digital Out 8xLogicLevel"/>
                <Text TextId="TOK_InfoText_Module_I8O8" Value="Digital In+Out 8xLogicLevel"/>
                <Text TextId="TOK_InfoText_Module_Echo" Value="Echo with adjustable gain"/>
-               <Text TextId="IDT_InfoText_Module_AppCount" Value="IED Application Count"/>
+               <Text TextId="IDT_InfoText_Module_IEDStats" Value="IED States"/>
                <!--dataitem name-->
                <Text TextId="TOK_Input_DataItem_8" Value="Input 8 bits"/>
                <Text TextId="TOK_Output_DataItem_8" Value="Output 8 bits"/>
