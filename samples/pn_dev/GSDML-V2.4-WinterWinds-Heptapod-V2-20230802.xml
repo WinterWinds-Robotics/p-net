@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.4.xsd">
+   <!-- ProfileHeader definition as defined in ISO 15745-1. Please do not change the content. -->
+   <ProfileHeader>
+      <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+      <ProfileRevision>1.00</ProfileRevision>
+      <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+      <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+      <ProfileClassID>Device</ProfileClassID>
+      <ISO15745Reference>
+         <ISO15745Part>4</ISO15745Part>
+         <ISO15745Edition>1</ISO15745Edition>
+         <ProfileTechnology>GSDML</ProfileTechnology>
+      </ISO15745Reference>
+   </ProfileHeader>
+   <ProfileBody>
+      <DeviceIdentity VendorID="0x0493" DeviceID="0x0002">
+         <InfoText TextId="IDT_INFO_Device"/>
+         <VendorName Value="WWR"/>
+      </DeviceIdentity>
+      <DeviceFunction>
+         <Family MainFamily="I/O" ProductFamily="IEM-Device"/>
+      </DeviceFunction>
+      <ApplicationProcess>
+         <DeviceAccessPointList>
+            <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="heptapod-bootstrap" FixedInSlots="0" ObjectUUID_LocalIndex="1"  MultipleWriteSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
+            <!--
+Replace the tag above with the one below to support shared device.
+-->
+            <!--
+            <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="rt-labs-dev" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="false" MultipleWriteSupported="true" SharedDeviceSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
+-->
+               <ModuleInfo>
+                  <Name TextId="IDT_MODULE_NAME_DAP1"/>
+                  <InfoText TextId="IDT_INFO_DAP1"/>
+                  <VendorName Value="WinterWinds Robotics"/>
+                  <OrderNumber Value="410106"/>
+                  <HardwareRelease Value="A1.0"/>
+                  <SoftwareRelease Value="V0.1.0"/>
+               </ModuleInfo>
+               <CertificationInfo ConformanceClass="B" ApplicationClass="" NetloadClass="I"/>
+               <IOConfigData MaxInputLength="244" MaxOutputLength="244"/>
+               <UseableModules>
+                  <ModuleItemRef ModuleItemTarget="IDM_30" AllowedInSlots="1..4"/>
+                  <ModuleItemRef ModuleItemTarget="IDM_31" AllowedInSlots="1..4"/>
+                  <ModuleItemRef ModuleItemTarget="IDM_32" AllowedInSlots="1..4"/>
+                  <ModuleItemRef ModuleItemTarget="IDM_40" AllowedInSlots="1..4"/>
+               </UseableModules>
+               <VirtualSubmoduleList>
+                  <VirtualSubmoduleItem ID="IDS_1" SubmoduleIdentNumber="0x00000001" Writeable_IM_Records="1 2 3" MayIssueProcessAlarm="false">
+                     <IOData/>
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_DAP1"/>
+                        <InfoText TextId="IDT_INFO_DAP1"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
+               <SystemDefinedSubmoduleList>
+                  <InterfaceSubmoduleItem ID="IDS_I" SubmoduleIdentNumber="0x00008000" SubslotNumber="32768" TextId="IDT_NAME_IS" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true">
+                     <ApplicationRelations StartupMode="Advanced">
+                        <TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+                     </ApplicationRelations>
+                  </InterfaceSubmoduleItem>
+                  <PortSubmoduleItem ID="IDS_P1" SubmoduleIdentNumber="0x00008001" SubslotNumber="32769" TextId="IDT_NAME_PS1" MaxPortRxDelay="350" MaxPortTxDelay="160">
+                     <MAUTypeList>
+                        <MAUTypeItem Value="30"/>
+                        <MAUTypeItem Value="16"/>
+                        <MAUTypeItem Value="5"/>
+                     </MAUTypeList>
+                  </PortSubmoduleItem>
+                 <!--
+                 <PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00008002" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+                     <MAUTypeList>
+                        <MAUTypeItem Value="30"/>
+                        <MAUTypeItem Value="16"/>
+                        <MAUTypeItem Value="5"/>
+                     </MAUTypeList>
+                  </PortSubmoduleItem> 
+                  -->
+               </SystemDefinedSubmoduleList>
+               <Graphics>
+                  <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="GSDML-WWRImage"/>
+               </Graphics>
+            </DeviceAccessPointItem>
+         </DeviceAccessPointList>
+         <ModuleList>
+            <ModuleItem ID="IDM_30" ModuleIdentNumber="0x00000030">
+               <ModuleInfo>
+                  <Name TextId="IDT_MODULE_NAME_IEDVD"/>
+                  <InfoText TextId="IDT_INFO_IEDVD"/>
+                  <HardwareRelease Value="1.0"/>
+                  <SoftwareRelease Value="1.0"/>
+               </ModuleInfo>
+		<VirtualSubmoduleList>
+                  <VirtualSubmoduleItem ID="IDSM_130" SubmoduleIdentNumber="0x0130" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                        </Output>
+                     </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_IEDVD"/>
+                        <InfoText TextId="IDT_INFO_IEDVD"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
+            </ModuleItem>
+            <ModuleItem ID="IDM_31" ModuleIdentNumber="0x00000031">
+               <ModuleInfo>
+                  <Name TextId="IDT_MODULE_NAME_IPC427E"/>
+                  <InfoText TextId="IDT_INFO_IPC427E"/>
+                  <HardwareRelease Value="1.0"/>
+                  <SoftwareRelease Value="1.0"/>
+               </ModuleInfo>
+               <VirtualSubmoduleList>
+                  <VirtualSubmoduleItem ID="IDSM_131" SubmoduleIdentNumber="0x0131" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                        </Output>
+                     </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_IPC427E"/>
+                        <InfoText TextId="IDT_INFO_IPC427E"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
+            </ModuleItem>
+            <ModuleItem ID="IDM_32" ModuleIdentNumber="0x00000032">
+               <ModuleInfo>
+                  <Name TextId="IDT_MODULE_NAME_IPC277E"/>
+                  <InfoText TextId="IDT_INFO_IPC277E"/>
+                  <HardwareRelease Value="1.0"/>
+                  <SoftwareRelease Value="1.0"/>
+               </ModuleInfo>
+            <VirtualSubmoduleList>
+                  <VirtualSubmoduleItem ID="IDSM_132" SubmoduleIdentNumber="0x0132" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_Echo_Float32"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                        </Output>
+                     </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_IPC277E"/>
+                        <InfoText TextId="IDT_INFO_IPC277E"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
+            </ModuleItem>
+            <ModuleItem ID="IDM_50" ModuleIdentNumber="0x00000050">
+               <ModuleInfo>
+                  <Name TextId="IDT_MODULE_NAME_IOT2050"/>
+                  <InfoText TextId="IDT_INFO_IOT2050"/>
+                  <HardwareRelease Value="1.0"/>
+                  <SoftwareRelease Value="1.0"/>
+               </ModuleInfo>
+               <VirtualSubmoduleList>
+                  <!-- <VirtualSubmoduleItem ID="IDSM_140" SubmoduleIdentNumber="0x0140" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_STORPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEM"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MEMPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDDET_DeviceType"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_STORPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_MEM"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_MEMPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_CPUPCT"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDDET_DeviceType"/>
+                        </Output>
+                     </IOData>
+                     <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="IDT_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_IOT2050"/>
+                        <InfoText TextId="IDT_INFO_IOT2050"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem> -->
+                  <VirtualSubmoduleItem ID="IDSM_140" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                        </Output>
+                     </IOData>
+                     <!-- <RecordDataList>
+                        <ParameterRecordDataItem Index="126" Length="4">
+                           <Name TextId="IDT_sample_parameter_IOT2050_AppCount"/>
+                           <Ref DataType="Float32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="IDT_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList> -->
+                     <ModuleInfo>
+                        <Name TextId="IDT_MODULE_NAME_IOT2050"/>
+                        <InfoText TextId="IDT_INFO_IOT2050"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
+            </ModuleItem>
+         </ModuleList>
+         <LogBookEntryList>
+            <LogBookEntryItem Status="2130510">
+               <!--Custom log book entry for sample application-->
+               <!--Error code 0x20  Error decode 0x82  Error code 1 0x4E-->
+               <ErrorCode2Value>
+                  <Name TextId="IDT_CUSTOM_LOGBOOK_1"/>
+               </ErrorCode2Value>
+            </LogBookEntryItem>
+         </LogBookEntryList>
+         <GraphicsList>
+            <GraphicItem ID="GSDML-WWRImage" GraphicFile="GSDML-WWR"/>
+         </GraphicsList>
+         <ExternalTextList>
+            <PrimaryLanguage>
+               <!--dap-categories-->
+               <Text TextId="IDT_INFO_Device" Value="Heptapod-Bootstrap"/>
+               <Text TextId="IDT_MODULE_NAME_DAP1" Value="HEPTAPOD-IEM-Manager"/>
+               <Text TextId="IDT_INFO_DAP1" Value="TIA Portal Configuration for the Industrial Edge"/>
+               <Text TextId="IDT_CUSTOM_DIAG_1" Value="Custom diagnosis in USI format"/>
+               <Text TextId="IDT_CUSTOM_DIAG_1_VALUE" Value="IED Status"/>
+               <Text TextId="IDT_CUSTOM_LOGBOOK_1" Value="IED Event"/>
+               <Text TextId="IDT_NAME_IS" Value="X1"/>
+               <Text TextId="IDT_NAME_PS1" Value="X1 P1"/>
+               <Text TextId="IDT_NAME_PS2" Value="X1 P2"/>
+               <Text TextId="IDT_DATAITEM_AnalogInput" Value="Analog Input Channel"/>
+               <Text TextId="IDT_DATAITEM_AnalogOutput" Value="Analog Output Channel"/>
+               <Text TextId="IDT_CATEGORY_IEDs" Value="Industrial Edge Devices"/>
+               <Text TextId="IDT_CATEGORY_Virtual_IED" Value="Virtual IED's"/>
+               <Text TextId="IDT_CATEGORY_SIEMENS_IED" Value="Siemens IED's"/>
+               <Text TextId="IDT_CATEGORY_WWR_IED" Value="WinterWinds IED's"/>
+               <Text TextId="IDT_NAME_DATABUS" Value="DataBus"/>
+               <Text TextId="IDT_INFO_DATABUS" Value="DATABUS App"/>
+               <Text TextId="IDT_NAME_DATASERVICE" Value="DataService"/>
+               <Text TextId="IDT_INFO_DATASERVICE" Value="Description of submodule 2"/>
+               <Text TextId="IDT_NAME_HEPTAPOD" Value="Heptapod_Databus"/>
+               <Text TextId="IDT_INFO_HEPTAPOD" Value="Description of submodule 3"/>
+               <!--module name and info-->
+               <Text TextId="IDT_MODULE_NAME_IEDVD" Value="IED-VIRTUAL"/>
+               <Text TextId="IDT_INFO_IEDVD" Value="IED Virtual Device"/>
+               <Text TextId="IDT_MODULE_NAME_IPC277E" Value="IED-IPC277E"/>
+               <Text TextId="IDT_INFO_IPC277E" Value="Siemens IPC277E"/>
+               <Text TextId="IDT_MODULE_NAME_IPC427E" Value="IED-IPC427E"/>
+               <Text TextId="IDT_INFO_IPC427E" Value="Siemens IPC427E"/>
+               <Text TextId="IDT_MODULE_NAME_IOT2050" Value="IED-IOT2050"/>
+               <Text TextId="IDT_INFO_IOT2050" Value="IED - Siemens IOT2050"/>
+               <!--dataitem name-->
+               <Text TextId="IDT_Input_DataItem_Echo_Float32" Value="Number of Applications On IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppPCT" Value="Percentage Capacity Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_STORPCT" Value="Data Space Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MEM" Value="Memory Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MEMPCT" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_CPUPCT" Value="CPU Percentage"/>
+               <Text TextId="IDT_Input_DataItem_IEDDET_DeviceType" Value="Device Type"/>
+               <Text TextId="IDT_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
+               <Text TextId="IDT_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="IED App Count"/>
+               <!--ParameterRecordDataItem name-->
+               <Text TextId="IDT_sample_parameter_1" Value="NTP Server 1"/>
+               <Text TextId="IDT_sample_parameter_2" Value="NTP Server 2"/>
+               <Text TextId="IDT_sample_parameter_Echo" Value="Other Stuff"/>
+               <Text TextId="IDT_Demo_1" Value="Caleb 1"/>
+               <Text TextId="IDT_Demo_2" Value="Caleb 2"/>
+               <Text TextId="IDT_Echo_Gain" Value="Caleb Gain"/>
+            </PrimaryLanguage>
+         </ExternalTextList>
+      </ApplicationProcess>
+   </ProfileBody>
+</ISO15745Profile>
