@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #define APP_DATA_DEFAULT_OUTPUT_DATA 0
 
@@ -88,6 +89,31 @@ static void app_handle_data_led_state (bool led_state)
    previous_led_state = led_state;
 }
 #define ARRAY_SIZE(arr) (sizeof (arr) / sizeof ((arr)[0]))
+
+int fgetfloat(const char *fpath, float *rv) {
+    int rc = 0;
+    *rv = -999.999;
+    rc = access(fpath, F_OK);
+    if( rc != 0 ) {
+       fprintf(stderr, "ERROR: Unable to access() %s", fpath);
+    } else {
+        FILE * fp = fopen ("/tmp/zdata/ApplicationCount", "r");
+        if (fp) {
+            char buf[32];
+            int n = fread (buf, sizeof (*buf), ARRAY_SIZE (buf), fp);
+            if (!n) {
+               rc = 1;
+               fprintf(stderr, "uh oh\n");
+            } else {
+               *rv = strtof (buf, NULL);
+            }
+         fclose (fp);
+        }
+    }
+    return rc;
+}
+
+
 uint8_t * app_data_get_input_data (
    uint16_t slot_nbr,
    uint16_t subslot_nbr,
@@ -115,8 +141,34 @@ uint8_t * app_data_get_input_data (
    {
       return NULL;
    }
+    if( submodule_id > APP_GSDML_SUBMOD_ID_IEDSTATS_MIN 
+          && submodule_id < APP_GSDML_SUBMOD_ID_IEDSTATS_MAX) {
+        int rc;
+        switch(submodule_id) {
+            case APP_GSDML_SUBMOD_ID_IEDSTATS_APPCOUNT:
+                rc = fgetfloat("/tmp/zdata/ApplicationCount", &inputfloat);
+                break;
+            case APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT:
+                rc = fgetfloat("/tmp/zdata/MemoryPercentage", &inputfloat);
+                break;
+            default:
+                rc = 1;
+                break;
+        }
+        if(rc != 0 ) {
+           fprintf(stderr, "fgetfloat returned %d\n", rc);
+        }
+        printf ("inputfloat: %f\n", inputfloat);
+        memcpy (&hostorder_inputfloat_bytes, &inputfloat, sizeof (outputfloat));
+        p_echo_inputdata->echo_float_bytes =
+         CC_TO_BE32 (hostorder_inputfloat_bytes);
 
-   if (submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN)
+        *size = APP_GSDML_INPUT_DATA_ECHO_SIZE;
+        *iops = PNET_IOXS_GOOD;
+        return echo_inputdata;
+
+    }
+      if (submodule_id == APP_GSDML_SUBMOD_ID_DIGITAL_IN)
    {
       inputdata[0] = 0xff;
       /*  FILE * fp = fopen ("input", "r");
