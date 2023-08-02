@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
-
-import rich
+import os
 from rich import print
 
 # x = """
@@ -11,21 +10,42 @@ from rich import print
 #  }
 # }"
 # """
-#
-with open("x.json") as f:
-    x = f.read()
+
+# Here, x_example.json is the direct output from the iectl command:
+# $EDGE_SKIP_TLS=1 iectl iem device get-statistics --deviceId c40df90283a246aa8da39ce17affc4b1 > x_example.json 
+x = json.load(open('x_example.json', 'r'))
+
+# Adapted from recursive map through complex json from 
+# https://stackoverflow.com/a/12507546
+def dict_generator(indict, pre=None):
+    pre = pre[:] if pre else []
+    if isinstance(indict, dict):
+        for key, value in indict.items():
+            if isinstance(value, dict):
+                for d in dict_generator(value, pre + [key]):
+                    yield d
+            elif isinstance(value, list) or isinstance(value, tuple):
+                for v in value:
+                    for d in dict_generator(v, pre + [key]):
+                        yield d
+            elif isinstance(value, str) and len(value) > 0 and (value[0] == '{' or value[0] =='['):
+                value = json.loads(value)
+                for d in dict_generator(value, pre + [key]):
+                    yield d
+            else:
+                yield pre + [key, value]
+    else:
+        yield pre + [indict] 
 
 
 def main():
-    # print(x)
-    j = json.loads(x)
-    print(j)
+    data = list(dict_generator(x))
+    print(data)
 
-    for k, v in j.get("AppCount").items():
-        print(f"{k}: {v}, {type(v)}")
-        if type(v) == type(1.0):
-            with open(f"/tmp/zdata/{k}", "w") as f:
-                f.write(f"{v}")
+    for datum in data:        
+        with open(f"/tmp/zdata/{datum[-2]}", "w") as f:
+            f.write(f"{datum[-1]}")
+
 
 
 if __name__ == "__main__":
