@@ -266,11 +266,11 @@ Add additional PortSubmoduleItems to support additional ports
                         <ParameterRecordDataItem Index="125" Length="4">
                            <Name TextId="TOK_sample_parameter_Echo"/>
                            <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="TOK_Echo_Gain"/>
-                        </ParameterRecordDataItem> -->
-                     </RecordDataList>
+                        </ParameterRecordDataItem>
+                     </RecordDataList> -->
                      <ModuleInfo>
-                        <Name TextId="TOK_Name_Module_Echo"/>
-                        <InfoText TextId="TOK_InfoText_Module_Echo"/>
+                        <Name TextId="IDT_Name_Module_AppCount"/>
+                        <InfoText TextId="IDT_InfoText_Module_AppCount"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
@@ -304,11 +304,13 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Name_Module_O8" Value="IED-Siemens IPC427E"/>
                <Text TextId="TOK_Name_Module_I8O8" Value="IED - Siemens IPC227E"/>
                <Text TextId="TOK_Name_Module_Echo" Value="IED - WinterWinds BB-4101"/>
+               <Text TextId="IDT_Name_Module_AppCount" Value="IED - WinterWinds BB-4101"/>
                <!--module info -->
                <Text TextId="TOK_InfoText_Module_I8" Value="Virtual IED"/>
                <Text TextId="TOK_InfoText_Module_O8" Value="Siemens IPC427E"/>
                <Text TextId="TOK_InfoText_Module_I8O8" Value="Siemens IPC227E"/>
                <Text TextId="TOK_InfoText_Module_Echo" Value="WinterWinds Badger Brain"/>
+               <Text TextId="IDT_InfoText_Module_AppCount" Value="IED Application Count"/>
                <!--dataitem name-->
                <Text TextId="TOK_Input_DataItem_8" Value="Input 8 bits"/>
                <Text TextId="TOK_Output_DataItem_8" Value="Output 8 bits"/>
@@ -332,6 +334,8 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
                <Text TextId="TOK_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
                <Text TextId="TOK_Output_DataItem_Echo_Unsigned32" Value="Output int from controller"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <!--ParameterRecordDataItem name-->
                <Text TextId="TOK_sample_parameter_1" Value="NTP Server 1"/>
                <Text TextId="TOK_sample_parameter_2" Value="NTP Server 2"/>
