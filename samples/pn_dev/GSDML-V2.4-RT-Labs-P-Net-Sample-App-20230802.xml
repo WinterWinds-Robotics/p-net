@@ -245,8 +245,8 @@ Add additional PortSubmoduleItems to support additional ports
             </ModuleItem>
             <ModuleItem ID="IDM_50" ModuleIdentNumber="0x00000050">
                <ModuleInfo>
-                  <Name TextId="IDT_Name_Module_AppCount"/>
-                  <InfoText TextId="IDT_InfoText_Module_AppCount"/>
+                  <Name TextId="IDT_Name_Module_IEDStats"/>
+                  <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
                   <HardwareRelease Value="1.0"/>
                   <SoftwareRelease Value="1.0"/>
                </ModuleInfo>
@@ -260,15 +260,23 @@ Add additional PortSubmoduleItems to support additional ports
                            <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
                         </Output>
                      </IOData>
-                     <!-- <RecordDataList>
-                        <ParameterRecordDataItem Index="125" Length="4">
-                           <Name TextId="TOK_sample_parameter_Echo"/>
-                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="TOK_Echo_Gain"/>
-                        </ParameterRecordDataItem>
-                     </RecordDataList> -->
                      <ModuleInfo>
-                        <Name TextId="IDT_Name_Module_AppCount"/>
-                        <InfoText TextId="IDT_InfoText_Module_AppCount"/>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+                  <VirtualSubmoduleItem ID="IDM_151" SubmoduleIdentNumber="0x0151" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MemPct"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_MemPct"/>
+                        </Output>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
@@ -332,8 +340,13 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Input_DataItem_Echo_Unsigned32" Value="Input int to controller (output from controller multiplied by gain)"/>
                <Text TextId="TOK_Output_DataItem_Echo_Float32" Value="Output float from controller"/>
                <Text TextId="TOK_Output_DataItem_Echo_Unsigned32" Value="Output int from controller"/>
+
+               <!-- IEDStats Submodules -->
                <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
+
                <!--ParameterRecordDataItem name-->
                <Text TextId="TOK_sample_parameter_1" Value="Parameter 1"/>
                <Text TextId="TOK_sample_parameter_2" Value="Parameter 2"/>
