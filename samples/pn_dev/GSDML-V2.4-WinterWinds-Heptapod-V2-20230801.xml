@@ -68,13 +68,15 @@ Replace the tag above with the one below to support shared device.
                         <MAUTypeItem Value="5"/>
                      </MAUTypeList>
                   </PortSubmoduleItem>
-                  <PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00008002" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
+                 <!--
+                 <PortSubmoduleItem ID="IDS_P2" SubmoduleIdentNumber="0x00008002" SubslotNumber="32770" TextId="IDT_NAME_PS2" MaxPortRxDelay="350" MaxPortTxDelay="160">
                      <MAUTypeList>
                         <MAUTypeItem Value="30"/>
                         <MAUTypeItem Value="16"/>
                         <MAUTypeItem Value="5"/>
                      </MAUTypeList>
-                  </PortSubmoduleItem>
+                  </PortSubmoduleItem> 
+                  -->
                </SystemDefinedSubmoduleList>
                <Graphics>
                   <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="GSDML-WWRImage"/>
