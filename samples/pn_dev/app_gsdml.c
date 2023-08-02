@@ -164,22 +164,22 @@ static const app_gsdml_submodule_t submod_echo = {
 
 /* Demo submodules */
 static const app_gsdml_submodule_t submod_ied_appcount = {
-   .id = APP_GSDML_SUBMOD_ID_IED_APPCOUNT,
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_APPCOUNT,
    .name = "IED AppCount submodule",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
-   .insize = APP_GSDML_INPUT_IED_APPCOUNT_SIZE,
-   .outsize = APP_GSDML_OUTPUT_IED_APPCOUNT_SIZE,
+   .insize = APP_GSDML_INPUT_IEDSTATS_APPCOUNT_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_APPCOUNT_SIZE,
    .parameters = {
       0}};
 
-tatic const app_gsdml_submodule_t submod_ied_mempct = {
-   .id = APP_GSDML_SUBMOD_ID_IED_MEMPCT,
+static const app_gsdml_submodule_t submod_ied_mempct = {
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT,
    .name = "IED AppCount submodule",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
-   .insize = APP_GSDML_INPUT_IED_MEMPCT_SIZE,
-   .outsize = APP_GSDML_OUTPUT_IED_MEMPCT_SIZE,
+   .insize = APP_GSDML_INPUT_IEDSTATS_MEMPCT_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_MEMPCT_SIZE,
    .parameters = {
 
       0}};
