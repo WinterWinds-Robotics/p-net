@@ -170,7 +170,7 @@ static const app_gsdml_submodule_t submod_ied_appcount = {
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_IEDSTATS_APPCOUNT_SIZE,
    .outsize = APP_GSDML_OUTPUT_IEDSTATS_APPCOUNT_SIZE,
-   .parameters = {APP_GSDML_PARAMETER_ECHO_IDX, 0}};
+   .parameters = {APP_GSDML_PARAMETER_IEDSTATS_APPCOUNT_IDX, 0}};
 
 static const app_gsdml_submodule_t submod_ied_mempct = {
    .id = APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT,
@@ -179,7 +179,7 @@ static const app_gsdml_submodule_t submod_ied_mempct = {
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_IEDSTATS_MEMPCT_SIZE,
    .outsize = APP_GSDML_OUTPUT_IEDSTATS_MEMPCT_SIZE,
-   .parameters = {APP_GSDML_PARAMETER_ECHO_IDX, 0}};
+   .parameters = {APP_GSDML_PARAMETER_IEDSTATS_MEMPCT_IDX, 0}};
 
 /** List of supported modules */
 static const app_gsdml_module_t * app_gsdml_modules[] = {
