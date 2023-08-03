@@ -140,7 +140,12 @@ Add additional PortSubmoduleItems to support additional ports
                   <VirtualSubmoduleItem ID="IDSM_131" SubmoduleIdentNumber="0x0131" MayIssueProcessAlarm="true">
                      <IOData>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Unsigned8" TextId="TOK_Output_DataItem_8" UseAsBits="true">
+                           <DataItem DataType="Unsigned8" TextId="TOK_Output_Data
+      <ApplicationProcess>
+         <DeviceAccessPointList>
+            <DeviceAccessPointItem ID="IDD_1" PNIO_Version="V2.4" PhysicalSlots="0..4" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" DNS_CompatibleName="rt-labs-dev" FixedInSlots="0" ObjectUUID_LocalIndex="1" DeviceAccessSupported="false" MultipleWriteSupported="true" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="false" LLDP_NoD_Supported="true" ResetToFactoryModes="1..2">
+            <!--
+Replace the tag above with the one below to support shared deviceItem_8" UseAsBits="true">
                               <BitDataItem BitOffset="0" TextId="TOK_Output_DataItem_Bit0"/>
                               <BitDataItem BitOffset="1" TextId="TOK_Output_DataItem_Bit1"/>
                               <BitDataItem BitOffset="2" TextId="TOK_Output_DataItem_Bit2"/>
@@ -278,6 +283,12 @@ Add additional PortSubmoduleItems to support additional ports
                         <Name TextId="IDT_Name_Module_IEDStats"/>
                         <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
                      </ModuleInfo>
+                        <RecordDataList>
+                        <ParameterRecordDataItem Index="125" Length="4">
+                           <Name TextId="TOK_sample_parameter_Echo"/>
+                           <Ref DataType="Unsigned32" ByteOffset="0" DefaultValue="2" AllowedValues="1..4" Changeable="true" Visible="true" TextId="TOK_Echo_Gain"/>
+                        </ParameterRecordDataItem>
+                     </RecordDataList>
                   </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
             </ModuleItem>
