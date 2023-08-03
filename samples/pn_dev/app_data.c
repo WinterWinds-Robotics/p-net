@@ -151,6 +151,15 @@ uint8_t * app_data_get_input_data (
             case APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT:
                 rc = fgetfloat("/tmp/zdata/MemoryPercentage", &inputfloat);
                 break;
+            case APP_GSDML_SUBMOD_ID_IEDSTATS_STORPCT:
+                rc = fgetfloat("/tmp/zdata/DataSpacePercentage", &inputfloat);
+                break;
+            case APP_GSDML_SUBMOD_ID_IEDSTATS_MEM:
+                rc = fgetfloat("/tmp/zdata/MemoryUsed", &inputfloat);
+                break;
+            case APP_GSDML_SUBMOD_ID_IEDSTATS_CPUPCT:
+                rc = fgetfloat("/tmp/zdata/CpuPercentage", &inputfloat);
+                break;
             default:
                 rc = 1;
                 break;
