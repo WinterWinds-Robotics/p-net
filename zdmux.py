@@ -2,7 +2,10 @@
 import json
 import os
 from rich import print
-
+import zenoh
+from zenoh import config, QueryTarget
+import sys
+import time
 # x = """
 # "{
 #  "data": {
@@ -15,6 +18,14 @@ from rich import print
 # $EDGE_SKIP_TLS=1 iectl iem device get-statistics --deviceId c40df90283a246aa8da39ce17affc4b1 > x_example.json 
 x = json.load(open('x_example.json', 'r'))
 
+selector = "heptapod/iectl"
+devid = "f1e3671ac0824782a051847a4938b6dc"
+value = '{"type":"iem", "commands":["device", "get-statistics", "--deviceId", "f1e3671ac0824782a051847a4938b6dc"]}'
+
+conf = zenoh.Config()
+zenoh.init_logger()
+session = zenoh.open(conf)
+target=  QueryTarget.BEST_MATCHING()
 # Adapted from recursive map through complex json from 
 # https://stackoverflow.com/a/12507546
 def dict_generator(indict, pre=None):
@@ -39,12 +50,32 @@ def dict_generator(indict, pre=None):
 
 
 def main():
-    data = list(dict_generator(x))
-    print(data)
+    while True: 
+        print("Sending...")
+        replies = session.get(selector, zenoh.Queue(), target=target, value=value)
+        for reply in replies.receiver:
+            try:
+                print(">> Received ('{}': '{}')"
+                      .format(reply.ok.key_expr, reply.ok.payload.decode("utf-8")))
+                data = list(dict_generator(json.loads(reply.ok.payload.decode("utf-8"))))
+                print(data)
+                for datum in data:        
+                    with open(f"/tmp/zdata/{datum[-2]}", "w") as f:
+                        f.write(f"{datum[-1]}")
+            except:
+                print(">> Received (ERROR: '{}')"
+                      .format(reply.err.payload.decode("utf-8")))
+        time.sleep(5)
 
-    for datum in data:        
-        with open(f"/tmp/zdata/{datum[-2]}", "w") as f:
-            f.write(f"{datum[-1]}")
+
+    session.close()
+
+#    data = list(dict_generator(x))
+#    print(data)
+#
+#    for datum in data:        
+#        with open(f"/tmp/zdata/{datum[-2]}", "w") as f:
+#            f.write(f"{datum[-1]}")
 
 
 
