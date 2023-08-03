@@ -66,6 +66,10 @@ static const app_gsdml_module_t module_IED = {
    .submodules = {
       APP_GSDML_SUBMOD_ID_IEDSTATS_APPCOUNT, 
       APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT,
+      APP_GSDML_SUBMOD_ID_IEDSTATS_APPPCT,
+      APP_GSDML_SUBMOD_ID_IEDSTATS_STORPCT,
+      APP_GSDML_SUBMOD_ID_IEDSTATS_MEM,
+      APP_GSDML_SUBMOD_ID_IEDSTATS_CPUPCT,
       0
    }
 };
@@ -163,26 +167,59 @@ static const app_gsdml_submodule_t submod_echo = {
    .parameters = {APP_GSDML_PARAMETER_ECHO_IDX, 0}};
 
 /* Demo submodules */
-static const app_gsdml_submodule_t submod_ied_appcount = {
+static const app_gsdml_submodule_t submod_iedstat_appcount = {
    .id = APP_GSDML_SUBMOD_ID_IEDSTATS_APPCOUNT,
    .name = "IED AppCount submodule",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_IEDSTATS_APPCOUNT_SIZE,
    .outsize = APP_GSDML_OUTPUT_IEDSTATS_APPCOUNT_SIZE,
-   .parameters = {
-      0}};
+   .parameters = {0}};
 
-static const app_gsdml_submodule_t submod_ied_mempct = {
+static const app_gsdml_submodule_t submod_iedstat_mempct = {
    .id = APP_GSDML_SUBMOD_ID_IEDSTATS_MEMPCT,
    .name = "IED AppCount submodule",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_IO,
    .insize = APP_GSDML_INPUT_IEDSTATS_MEMPCT_SIZE,
    .outsize = APP_GSDML_OUTPUT_IEDSTATS_MEMPCT_SIZE,
-   .parameters = {
+   .parameters = {0}};
 
-      0}};
+static const app_gsdml_submodule_t submod_iedstat_apppct = {
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_APPPCT,
+   .name = "IED AppPercent submodule",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_IO,
+   .insize = APP_GSDML_INPUT_IEDSTATS_APPPCT_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_APPPCT_SIZE,
+   .parameters = {0}};
+
+static const app_gsdml_submodule_t submod_iedstat_storpct = {
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_STORPCT,
+   .name = "IED StoragePercent submodule",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_IO,
+   .insize = APP_GSDML_INPUT_IEDSTATS_STORPCT_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_STORPCT_SIZE,
+   .parameters = {0}};
+
+static const app_gsdml_submodule_t submod_iedstat_mem = {
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_MEM,
+   .name = "IED Memory submodule",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_IO,
+   .insize = APP_GSDML_INPUT_IEDSTATS_MEM_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_MEM_SIZE,
+   .parameters = {0}};
+
+static const app_gsdml_submodule_t submod_iedstat_cpupct = {
+   .id = APP_GSDML_SUBMOD_ID_IEDSTATS_CPUPCT,
+   .name = "IED CPUPercentage submodule",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_IO,
+   .insize = APP_GSDML_INPUT_IEDSTATS_CPUPCT_SIZE,
+   .outsize = APP_GSDML_OUTPUT_IEDSTATS_CPUPCT_SIZE,
+   .parameters = {0}};
 
 /** List of supported modules */
 static const app_gsdml_module_t * app_gsdml_modules[] = {
@@ -209,8 +246,12 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
 
    &submod_echo,
 
-   &submod_ied_appcount,
-   &submod_ied_mempct,
+   &submod_iedstat_appcount,
+   &submod_iedstat_mempct,
+   &submod_iedstat_apppct,
+   &submod_iedstat_storpct,
+   &submod_iedstat_mem,
+   &submod_iedstat_cpupct,
 };
 
 /* List of supported parameters.

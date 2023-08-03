@@ -279,6 +279,62 @@ Add additional PortSubmoduleItems to support additional ports
                         <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
                      </ModuleInfo>
                   </VirtualSubmoduleItem>
+                  <VirtualSubmoduleItem ID="IDM_152" FixedInSubslots="3" SubmoduleIdentNumber="0x0152" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppPct"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppPct"/>
+                        </Output>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+                  <VirtualSubmoduleItem ID="IDM_153" FixedInSubslots="4" SubmoduleIdentNumber="0x0153" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_StorPct"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_StorPct"/>
+                        </Output>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+                  <VirtualSubmoduleItem ID="IDM_154" FixedInSubslots="5" SubmoduleIdentNumber="0x0154" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_Mem"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_Mem"/>
+                        </Output>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+                  <VirtualSubmoduleItem ID="IDM_155" FixedInSubslots="6" SubmoduleIdentNumber="0x0155" MayIssueProcessAlarm="true">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_CPUPct"/>
+                        </Input>
+                        <Output Consistency="All items consistency">
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_CPUPct"/>
+                        </Output>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="IDT_Name_Module_IEDStats"/>
+                        <InfoText TextId="IDT_InfoText_Module_IEDStats"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
                </VirtualSubmoduleList>
             </ModuleItem>
          </ModuleList>
@@ -346,7 +402,14 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
                <Text TextId="IDT_Input_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
                <Text TextId="IDT_Output_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
-
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppPct" Value="Percentage Capacity Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppPct" Value="Percentage Capacity Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_StorPct" Value="Data Space Percentage Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_StorPct" Value="Data Space Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_Mem" Value="Memory Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_Mem" Value="Memory Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_CPUPct" Value="CPU Percentage Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_CPUPct" Value="CPU Percentage Used"/>                                             
                <!--ParameterRecordDataItem name-->
                <Text TextId="TOK_sample_parameter_1" Value="Parameter 1"/>
                <Text TextId="TOK_sample_parameter_2" Value="Parameter 2"/>
