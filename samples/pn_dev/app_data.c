@@ -97,7 +97,7 @@ int fgetfloat(const char *fpath, float *rv) {
     if( rc != 0 ) {
        fprintf(stderr, "ERROR: Unable to access() %s", fpath);
     } else {
-        FILE * fp = fopen ("/tmp/zdata/ApplicationCount", "r");
+        FILE * fp = fopen (fpath, "r");
         if (fp) {
             char buf[32];
             int n = fread (buf, sizeof (*buf), ARRAY_SIZE (buf), fp);
