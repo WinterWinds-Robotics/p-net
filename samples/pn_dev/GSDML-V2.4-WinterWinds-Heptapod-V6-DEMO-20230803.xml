@@ -254,10 +254,12 @@ Add additional PortSubmoduleItems to support additional ports
                   <VirtualSubmoduleItem ID="IDM_150" FixedInSubslots="1" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_AppCount_Float32"/>
+                           <DataItem DataType="Unsigned32" TextId="IDT_Input_DataItem_IEDStats_AppCount_Unsigned32"/>
                         </Input>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_AppCount_Float32"/>
+                           <DataItem DataType="Unsigned32" TextId="IDT_Output_DataItem_IEDStats_AppCount_Unsigned32"/>
                         </Output>
                      </IOData>
                         <RecordDataList>
@@ -274,10 +276,12 @@ Add additional PortSubmoduleItems to support additional ports
                   <VirtualSubmoduleItem ID="IDM_151" FixedInSubslots="2" SubmoduleIdentNumber="0x0151" MayIssueProcessAlarm="true">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MemPct"/>
+                           <DataItem DataType="Float32" TextId="IDT_Input_DataItem_IEDStats_MemPct_Float32"/>
+                           <DataItem DataType="Unsigned32" TextId="IDT_Input_DataItem_IEDStats_MemPct_Unsigned32"/>
                         </Input>
                         <Output Consistency="All items consistency">
-                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_MemPct"/>
+                           <DataItem DataType="Float32" TextId="IDT_Output_DataItem_IEDStats_MemPct_Float32"/>
+                           <DataItem DataType="Unsigned32" TextId="IDT_Output_DataItem_IEDStats_MemPct_Unsigned32"/>
                         </Output>
                      </IOData>
                      <RecordDataList>
@@ -354,10 +358,14 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Output_DataItem_Echo_Unsigned32" Value="Output int from controller"/>
 
                <!-- IEDStats Submodules -->
-               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
-               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount" Value="Number of Applications on IED"/>
-               <Text TextId="IDT_Input_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
-               <Text TextId="IDT_Output_DataItem_IEDStats_MemPct" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount_Float32" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount_Float32" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MemPct_Float32" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_MemPct_Float32" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_AppCount_Unsigned32" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_AppCount_Unsigned32" Value="Number of Applications on IED"/>
+               <Text TextId="IDT_Input_DataItem_IEDStats_MemPct_Unsigned32" Value="Memory Percentage Used"/>
+               <Text TextId="IDT_Output_DataItem_IEDStats_MemPct_Unsigned32" Value="Memory Percentage Used"/>
 
                <!--ParameterRecordDataItem name-->
                <Text TextId="TOK_sample_parameter_1" Value="Parameter 1"/>
@@ -368,6 +376,9 @@ Add additional PortSubmoduleItems to support additional ports
                <Text TextId="TOK_Demo_1" Value="Demo 1"/>
                <Text TextId="TOK_Demo_2" Value="Demo 2"/>
                <Text TextId="TOK_Echo_Gain" Value="Gain"/>
+               <Text TextId="TOK_IEDStats_AppCount_Gain" Value="Gain for AppCount module"/>
+               <Text TextId="TOK_IEDStats_MemPct_Gain" Value="Gain for MemPct module"/>
+  
             </PrimaryLanguage>
          </ExternalTextList>
       </ApplicationProcess>

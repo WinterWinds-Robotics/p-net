@@ -231,7 +231,18 @@ static app_gsdml_param_t app_gsdml_parameters[] = {
       .index = APP_GSDML_PARAMETER_ECHO_IDX,
       .name = "Echo gain setting",
       .length = APP_GSDML_PARAMETER_LENGTH,
-   }};
+   },
+   {
+      .index = APP_GSDML_PARAMETER_IEDSTATS_APPCOUNT_IDX,
+      .name = "App Count gain setting",
+      .length = APP_GSDML_PARAMETER_LENGTH,
+   },
+   {
+      .index = APP_GSDML_PARAMETER_IEDSTATS_MEMPCT_IDX,
+      .name = "Memory Percent gain setting",
+      .length = APP_GSDML_PARAMETER_LENGTH,
+   },
+};
 
 const app_gsdml_module_t * app_gsdml_get_module_cfg (uint32_t id)
 {
