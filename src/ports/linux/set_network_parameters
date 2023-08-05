@@ -45,6 +45,8 @@ echo "Network script for ${INTERFACE}: " \
    "Hostname: ${HOSTNAME}  " \
    "Skip setting hostname: ${SKIP_SETTING_HOSTNAME}"
 
+echo "*** This script does nothing... exiting 0***"
+exit 0
 # There is no need to set the changes permanently,
 # as the p-net stack will set the IP parameters on each start.
 # You are however free to use it if you like.
